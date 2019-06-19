@@ -54,19 +54,19 @@ var MagazineView = {
     configureToolbars: function () {
         if (MagazineView.magazineMode) {
             $('.toolbar').hide();
-            //$('#toolbarViewerLeft').hide();
-            //$('#toolbarViewerRight').hide();
-            //$('#toolbarViewerMiddle .splitToolbarButton').hide();
-            //$('#scaleSelectContainer').hide();
-            //$('#magazineViewButtonContainer').show();
+            $('#toolbarViewerLeft').hide();
+            $('#toolbarViewerRight').hide();
+            $('#toolbarViewerMiddle .splitToolbarButton').hide();
+            $('#scaleSelectContainer').hide();
+            $('#magazineViewButtonContainer').show();
         }
         else {
             $('.toolbar').show();
-            //$('#toolbarViewerLeft').show();
-            //$('#toolbarViewerRight').show();
-            //$('#toolbarViewerMiddle .splitToolbarButton').show();
-            //$('#scaleSelectContainer').show();
-            //$('#magazineViewButtonContainer').hide();
+            $('#toolbarViewerLeft').show();
+            $('#toolbarViewerRight').show();
+            $('#toolbarViewerMiddle .splitToolbarButton').show();
+            $('#scaleSelectContainer').show();
+            $('#magazineViewButtonContainer').hide();
         }
     },
     start: function () {
@@ -77,7 +77,7 @@ var MagazineView = {
         MagazineView.magazineMode = true;
         MagazineView.oldScale = PDFViewerApplication.pdfViewer.currentScale;
         PDFViewerApplication.pdfViewer.currentScaleValue = 'page-fit';
-        $('#viewerContainer').after('<div id="magazineContainer"><div class="icon-holder"><div class="exit-icon" id="exitMagazineView" alt="Exit magazine mode"></div><div class="zoom-icon zoom-icon-in" alt="Zoom"></div></div><div id="magazine"><div ignore="1" class="next-button"></div><div ignore="1" class="previous-button" style="display: block;"></div></div></div>');
+        $('#viewerContainer').after('<div id="magazineContainer"><div id="magazine"><div ignore="1" class="next-button"></div><div ignore="1" class="previous-button" style="display: block;"></div></div></div>');
 
         MagazineView.currentPage = PDFViewerApplication.page;
 
@@ -316,7 +316,7 @@ var MagazineView = {
                 var unscaledViewport = page.getViewport(1);
                 var divider = MagazineView.layout == 'double' ? 2 : 1;
 
-                var scale = Math.min((($('#mainContainer').height() - 20) / unscaledViewport.height), ((($('#mainContainer').width()- 80) / divider) / unscaledViewport.width));
+                var scale = Math.min((($('#mainContainer').height() - 200) / unscaledViewport.height), ((($('#mainContainer').width()- 800) / divider) / unscaledViewport.width));
 
                 var viewport = page.getViewport(scale);
 
